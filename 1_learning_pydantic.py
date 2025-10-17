@@ -1,7 +1,7 @@
 from pydantic import BaseModel,EmailStr,Field
 from typing import List, Dict, Optional, Annotated
 
-# Bsemodel is used to create data models with validation
+# Basemodel is used to create data models with validation
 # EmailStr is used to validate email fields
 # Field is used to provide additional metadata and validation for model fields
 # List, Dict, Optional are used to define types for fields
