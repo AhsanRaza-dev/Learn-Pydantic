@@ -43,3 +43,35 @@ class Patients(BaseModel):
         if domain_name not in valid_domains:
             raise ValueError(f'Email domain must be one of the following: {", ".join(valid_domains)}')
         return value
+    
+    @field_validator('name')
+    @classmethod
+    def transform_name(cls,value):
+        return value.upper()
+    
+
+
+def insert_data(patient: Patients):
+    return patient
+
+# Example usage
+patient_info = {
+    "name": "John Doe",
+    "age": 30,
+    "email": "ahsanaj695@curiologix.com",
+    "phone": "123-456-7890",
+    "married": False,
+    "allergies": ["Peanuts", "Penicillin"],
+    "medications": {"Aspirin": "100mg", "Lisinopril": "10mg"},
+    "height": 175.5,
+    "weight": 70.0,
+    "bmi": 22.7,
+    "blood_type": "O+",
+    "conditions": ["Hypertension"],
+    "emergency_contact": {"name": "Jane Doe", "relation": "Spouse", "phone": "123-456-7890"},
+    
+    }
+
+# Creating a Patients object and inserting data
+patient = insert_data(Patients(**patient_info))
+print(patient)
